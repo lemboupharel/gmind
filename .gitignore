@@ -1,3 +1,4 @@
 .env
 .directory
 /src/generated/prisma
+docker-compose.yaml

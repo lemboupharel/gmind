@@ -75,6 +75,8 @@ async function dashboard() {
 }
 
 if(token){
-    await dashboard();
-    // ask chat page
+    async function run() {
+        await dashboard();
+    }
+    run();
 }
