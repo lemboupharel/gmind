@@ -2,6 +2,11 @@ import express from 'express'
 import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
 
+import authroutes from './routes/authroutes.js'
+import chatroutes from './routes/chatroutes.js'
+import authmiddleware from './middleware/authmiddleware.js'
+
+
 const serverApp = express();
 const PORT = process.env.PORT || 5000  // port number here
 
@@ -15,10 +20,15 @@ const __dirname = dirname(__filename);
     // accept Json data
     serverApp.use(express.json());
 
-// end points
-serverApp.get('/', (req, res) => {
+// routes end points
+    serverApp.use('/auth', authroutes);
+    serverApp.use('/chat', authmiddleware, chatroutes);
+
+serverApp.get('/', () => {
     res.sendFile(path.join(__dirname, './../views', 'login.html'));
 });
+
+
 
 
 serverApp.listen(PORT, () => {
