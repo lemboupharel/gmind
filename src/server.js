@@ -24,7 +24,8 @@ const __dirname = dirname(__filename);
     serverApp.use('/auth', authroutes);
     serverApp.use('/chat', authmiddleware, chatroutes);
 
-serverApp.get('/', () => {
+
+serverApp.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './../views', 'login.html'));
 });
 

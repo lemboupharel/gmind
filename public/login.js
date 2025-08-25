@@ -1,3 +1,11 @@
+const loginForm = document.getElementById("loginForm");
+const signupForm = document.getElementById("signupForm");
+
+loginForm.addEventListener("submit", event => event.preventDefault());
+signupForm.addEventListener("submit", event => event.preventDefault());
+
+
+
 let token = localStorage.getItem('token') || sessionStorage.getItem('token');
 const apiBase = window.location.href;
 
@@ -7,6 +15,7 @@ const endpoint = ["register", "login"];
 
 
 async function In(val) {
+    
     const Username = document.getElementById(`${getIn[val]}Username`).value;
     const Password = document.getElementById(`${getIn[val]}Password`).value;
     const Check = document.getElementById(`${getIn[val]}Check`).checked;
@@ -31,6 +40,7 @@ async function In(val) {
                 localStorage.removeItem("token");
             }
 
+            await dashboard();
             // ask chat page
         }
         else{
@@ -41,8 +51,30 @@ async function In(val) {
         console.log(err);
         window.alert(err.message);
     }
+        
+}
+
+async function dashboard() {
+    try{
+        const request = await fetch(`${apiBase}chat/dash`, {
+            headers: { 'Authorization': token }
+        });
+
+        if(request.ok){
+            const response = await request.text();
+            document.body.innerHTML = response;
+            console.log(response);
+        }
+        else{
+            throw new Error("faild");
+        }
+    }
+    catch(err){
+        console.error(err);
+    }
 }
 
 if(token){
+    await dashboard();
     // ask chat page
 }
