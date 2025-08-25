@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <link rel="stylesheet" href="./style/css/bootstrap.css">
+    <link rel="stylesheet" href="./style.css">
+
+    
+</head>
+<body class="d-flex align-items-center py-4 bg-body-tertiary">
+    <div class="container-md" id="signPage">
+
+        <ul class="nav nav-tabs mb-3 justify-content-center" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-home-article" data-bs-toggle="pill" data-bs-target="#pills-article" type="button" role="tab" aria-controls="pills-article" aria-selected="true"><span class="h5">Sign in</span></button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-product-tab" data-bs-toggle="pill" data-bs-target="#pills-product" type="button" role="tab" aria-controls="pills-product" aria-selected="false"><span class="h5">Log in</span></button>
+            </li>
+        </ul>
+    
+        <div class="tab-content" id="pills-tab-content">
+            <div class="tab-pane fade show active" id="pills-article" role="tabpanel" aria-labelledby="pills-article-tab">
+
+                <main class="form-signin w-100 m-auto">
+                  <form id="signupForm">
+                    <h1 class="h3 mb-3 fw-normal">Creating an account</h1>
+
+                    <div class="form-floating">
+                      <input type="email" class="form-control" id="signupUsername" placeholder="JohnDoe">
+                      <label for="floatingInput">Username</label>
+                    </div>
+                    <div class="form-floating">
+                      <input type="password" class="form-control" id="signupPassword" placeholder="Password">
+                      <label for="floatingPassword">Password</label>
+                    </div>
+
+                    <div class="form-check text-start my-3">
+                      <input class="form-check-input" type="checkbox" value="remember-me" id="signupCheck">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Remember me
+                      </label>
+                    </div>
+                    <button id="signupBTN" class="btn btn-primary w-100 py-2" type="submit" onclick="signup()">Sign up</button>
+                    <p class="mt-5 mb-3 text-body-secondary">Lembou Pharel &copy;2025</p>
+                  </form>
+                </main>
+
+            </div>
+
+            <div class="tab-pane fade" id="pills-product" role="tabpanel" aria-labelledby="pills-product-tab">
+
+                <main class="form-signin w-100 m-auto">
+                  <form id="loginForm">
+                    <h1 class="h3 mb-3 fw-normal">Login into your account</h1>
+
+                    <div class="form-floating">
+                      <input type="email" class="form-control" id="loginUsername" placeholder="JohnDoe">
+                      <label for="floatingInput">Username</label>
+                    </div>
+                    <div class="form-floating">
+                      <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+                      <label for="floatingPassword">Password</label>
+                    </div>
+
+                    <div class="form-check text-start my-3">
+                      <input class="form-check-input" type="checkbox" value="remember-me" id="loginCheck">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Remember me
+                      </label>
+                    </div>
+                    <button id="loginBTN" class="btn btn-primary w-100 py-2" type="submit" onclick="login()">Login</button>
+                    <p class="mt-5 mb-3 text-body-secondary">Lembou Pharel &copy;2025</p>
+                  </form>
+                </main>
+
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="./style/js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="./index.js"></script>
+    
+</body>
+</html>
