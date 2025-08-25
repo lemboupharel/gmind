@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/css/bootstrap.css">
+    <link rel="stylesheet" href="c.css">
+    <title>G-mind</title>
+</head>
+<body>
+
+    <div class=" container-md" id="discution">
+    </div>
+
+    <div class="position-fixed bottom-0 start-0 end-0 bg-light p-3 border-top d-flex justify-content-center align-items-center">
+        <div class="container py-3">            
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-12 col-lg-6  d-flex justify-content-center align-items-center">
+                    <textarea class="form-control" rows="2" placeholder="Send a message..." id="prompt"></textarea>
+                    <button class="btn btn-primary m-2" id="sendBTN" onclick="chat()">
+                        <img src="send.svg" view alt="" class="my-icone m-0 p-0" width="100%">
+                    </button>
+               </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./style/js/bootstrap.bundle.js"></script>
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+</body>
+</html>
+
+            

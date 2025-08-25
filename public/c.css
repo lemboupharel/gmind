@@ -1,0 +1,16 @@
+#sendBTN{
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+}
+
+#discution{
+    margin-bottom: 170px;
+}
+
+.button-unclickable {
+    pointer-events: none;
+    opacity: 0.6;
+    cursor: not-allowed;
+    user-select: none;
+}

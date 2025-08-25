@@ -13,7 +13,7 @@ const __dirname = dirname(__filename);
     serverApp.use(express.static(path.join(__dirname, './../public')));
 
     // accept Json data
-    app.use(express.json());
+    serverApp.use(express.json());
 
 // end points
 serverApp.get('/', (req, res) => {
