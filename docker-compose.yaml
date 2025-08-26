@@ -7,7 +7,7 @@ services:
       - JWT_SECRET="your_jwt_secret_ket"
       - NODE_ENV=development
       - PORT=5000
-      - apiKey="AIzaSyAfDdE6sRWwjTeeoeLSluFN19Sx0P92DG8"
+      - apiKey="your_apikey_here"
     ports:
       - "5000:5000"
     depends_on:
