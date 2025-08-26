@@ -24,7 +24,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzU2MTYx
 ### chat
 POST http://127.0.0.1:5000/chat
 Content-Type: application/json
-Authorization: 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzU2MTY4Mjg1LCJleHAiOjE3NTYyNTQ2ODV9.eTSbLJMOLvXTVvsOLREZ2GpjFmxkRCnTWW8WxJwHC2Y
 
 {
     "chatinput":"hello baby"
