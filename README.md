@@ -76,9 +76,20 @@ DATABASE_URL=postgresql://postgres:postgres@db:5432/gmind
 
 1. Build and start containers:
     ```sh
-    docker-compose up --build
+    docker compose build
     ```
-2. Access the app at [http://localhost:5000](http://localhost:5000)
+
+2. Match prisma schema to postgresql db by setting migration:
+    ```sh
+    docker compose run serverapp npx prisma migrate dev --name init
+    ```
+
+2. Run server and db services:
+    ```sh
+    docker compose up
+    ```
+    
+3. Access the app at [http://localhost:5000](http://localhost:5000)
 
 ## API Endpoints
 
