@@ -39,7 +39,7 @@ async function In(val) {
                 sessionStorage.setItem("token", response.token);
                 localStorage.removeItem("token");
             }
-
+            document.cookie = `token = ${token}; path=/; max-age=3600; secure; samesite=strict`;
             await dashboard();
             // ask chat page
         }
@@ -62,8 +62,9 @@ async function dashboard() {
 
         if(request.ok){
             const response = await request.text();
-            document.body.innerHTML = response;
-            console.log(response);
+            document.open();
+            document.write(response);
+            document.close();
         }
         else{
             throw new Error("faild");

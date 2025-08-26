@@ -1,3 +1,4 @@
+
 const prompt = document.getElementById("prompt");
 const sendBTN = document.getElementById("sendBTN");
 const discution = document.getElementById("discution");
@@ -12,7 +13,8 @@ function srcole(){
     });
 }
 
-function pushUserMessage(){
+function pushUserMessage(message){
+    if(message === "") {return}
     const row = document.createElement("div");
     row.className = "row d-flex justify-content-end my-1";
     row.innerHTML = `<div class="col-12 col-sm-10 col-md-9">
@@ -23,7 +25,7 @@ function pushUserMessage(){
                             </div>
                         </div>
                     </div>`;
-    row.querySelector("pre").textContent = `${UserMassage}`;
+    row.querySelector("pre").textContent = `${message}`;
     discution.append(row);
     srcole();
 }
@@ -50,8 +52,11 @@ async function getAllChats() {
             headers: { 'Authorization': token }
         });
         if(request.ok){
-            const response = await request.json;
-            console.log(response);
+            const response = await request.json();
+            response.forEach( message => {
+                pushUserMessage(message.user_m);
+                pushAIMessage(message.ai_m)
+            });
         }
         else{
             throw new Error("can't reach resource");
@@ -62,4 +67,34 @@ async function getAllChats() {
     }
 }
 
+async function chat() {
+    chatinput = prompt.value;
+    sendBTN.classList.add("button-unclickable");
+    pushUserMessage(chatinput);
+    prompt.value = "";
+    try{
+        const request = await fetch(apiBase + 'chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token
+                },
+                body: JSON.stringify({ chatinput })
+            });
+
+        if(request.ok){
+            const response = await request.json();
+            pushAIMessage(response.insert.ai_m);
+            sendBTN.classList.remove("button-unclickable");
+        }
+
+
+
+    }catch(err){
+        console.error(err);
+        window.alert(`And error occured: ${err.message}`);
+    }
+}
+
 getAllChats();
+

@@ -1,0 +1,31 @@
+### create user
+POST http://127.0.0.1:5000/auth/register
+Content-Type: application/json
+
+{
+    "username":"test2@gmail.com",
+    "password":"freefreefree"
+}
+
+### login
+
+POST http://127.0.0.1:5000/auth/login
+Content-Type: application/json
+
+{
+    "username":"test2@gmail.com",
+    "password":"freefreefree"
+}
+
+### get chats
+GET http://127.0.0.1:5000/chat
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzU2MTYxODk4LCJleHAiOjE3NTYyNDgyOTh9.Q_7ugUJ3ecCtjQfa19BTCLBy_8H9fpCCYwnVQhvKMZc
+
+### chat
+POST http://127.0.0.1:5000/chat
+Content-Type: application/json
+Authorization: 
+
+{
+    "chatinput":"hello baby"
+}
