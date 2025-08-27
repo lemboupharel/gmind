@@ -19,7 +19,7 @@ Content-Type: application/json
 
 ### get chats
 GET http://127.0.0.1:5000/chat
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzU2MTYxODk4LCJleHAiOjE3NTYyNDgyOTh9.Q_7ugUJ3ecCtjQfa19BTCLBy_8H9fpCCYwnVQhvKMZc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzU2MjkwMzM1LCJleHAiOjE3NTYzNzY3MzV9.QQOnMBIwV4ZumCB3G7SkSnQCMEIvJtDOL27eOxNXu28
 
 ### chat
 POST http://127.0.0.1:5000/chat
