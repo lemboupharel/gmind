@@ -2,6 +2,7 @@ import express from 'express'
 import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
 
+import apiCall from '../apiCall.js'
 import prisma from '../prismaClient.js'
 
 const apikey = process.env.API_KEY.replaceAll('"','');;
@@ -16,39 +17,18 @@ const router = express.Router();
     router.post('/', async (req, res) => {
         const { chatinput } = req.body;
         try{
-        const request = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + apikey, {
-                                        method: 'POST',
-                                        headers: {
-                                            'Content-Type': 'application/json'
-                                        },
-                                        body: JSON.stringify({
-                                            contents: [
-                                                {
-                                                    parts: [
-                                                        { text: `${chatinput}` }
-                                                    ]
-                                                }
-                                            ]
-                                        })
-                                    })
-            
-            if(request.ok){
-                const response = await request.json();
-                let AiMassage = response.candidates[0].content.parts[0].text; // ajust this to your needs
+            const response = await apiCall(chatinput);
 
-                const insert = await prisma.message.create({
-                    data: {
-                        user_m: chatinput,
-                        ai_m: AiMassage,
-                        user_id: req.userId
-                    }
-                });
-                res.json({insert});
-            }
-            else{
-                throw new Error("request could not reach googleserver");
-            }
+            let AiMassage = response.candidates[0].content.parts[0].text; // ajust this to your needs
 
+            const insert = await prisma.message.create({
+                data: {
+                    user_m: chatinput,
+                    ai_m: AiMassage,
+                    user_id: req.userId
+                }
+            });
+            res.json({insert});
         }
         catch(err){
             console.log(err.message);
