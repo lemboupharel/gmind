@@ -16,7 +16,7 @@ const router = express.Router();
     router.post('/', async (req, res) => {
         const { chatinput } = req.body;
         try{
-            const response = await apiCall(chatinput);
+            const response = await apiCall(chatinput, req.userId);
 
             let AiMassage = response.candidates[0].content.parts[0].text; // ajust this to your needs
 

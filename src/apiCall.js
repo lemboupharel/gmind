@@ -1,10 +1,17 @@
+import { text } from "body-parser";
 import prisma from "./prismaClient.js"
-
 
 const apikey = process.env.API_KEY.replaceAll('"','');
 
 
-async function apiCall(chatinput) {
+async function apiCall(chatinput, uid) {
+    let conversation = []; // conversation history
+
+    conversation.push({
+        role: "user",
+        parts: [{text: `${chatinput}`}]
+    });
+
 
     const request = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + apikey, {
                                     method: 'POST',
@@ -12,13 +19,7 @@ async function apiCall(chatinput) {
                                         'Content-Type': 'application/json'
                                     },
                                     body: JSON.stringify({
-                                        contents: [
-                                            {
-                                                parts: [
-                                                    { text: `${chatinput}` }
-                                                ]
-                                            }
-                                        ]
+                                        contents: conversation
                                     })
                                 });
         
