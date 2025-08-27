@@ -111,7 +111,7 @@ DATABASE_URL=postgresql://postgres:postgres@db:5432/gmind
 
 ## License
 
-ISC
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
