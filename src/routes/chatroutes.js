@@ -5,7 +5,6 @@ import { fileURLToPath } from 'url'
 import apiCall from '../apiCall.js'
 import prisma from '../prismaClient.js'
 
-const apikey = process.env.API_KEY.replaceAll('"','');;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
