@@ -1,6 +1,6 @@
 import prisma from "./prismaClient.js"
 
-const apikey = process.env.API_KEY.replaceAll('"','');
+const apikey = process.env.API_KEY;
 const memory = 4;
 async function getLatest(uid) {
     const chats = await prisma.message.findMany({
